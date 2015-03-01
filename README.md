@@ -19,9 +19,11 @@ Build scripts to compile the STASM library (version 4 and later):
 
 ```
 $ cd STASM_DIR
-$ git clone STASM_BUILD
+$ git clone https://github.com/alyssaq/stasm_build.git
 $ patch apps/appmisc.cpp < stasm_build/patches/appmisc.cpp.20140201.diff
 $ patch apps/shapefile/shapefile.cpp < stasm_build/patches/shapefile.cpp.20140201.diff
+$ rm -r stasm_build/patches
+$ cp stasm_build/* .
 $ mkdir build && cd build
 $ cmake ../
 $ make
