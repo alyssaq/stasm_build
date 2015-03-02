@@ -1,6 +1,6 @@
 # STASM 4 build scripts
 
-This is a fork from <https://github.com/juan-cardelino/stasm> to include a command utility and a straightforward set of build instructions for mac/linux.
+This is a fork from <https://github.com/juan-cardelino/stasm> to include a command line utility and a straightforward set of build instructions for mac/linux.
 
 [Stasm](<http://www.milbo.users.sonic.net/stasm>) is a C++ library for finding key facial features (BSD licensed). [OpenCV](http://opencv.org/) is required.
 
