@@ -36,5 +36,9 @@ To run:
 
 	$ ./build/stasm_util -f data data/testface.jpg
 
+To show face points on image:
+
+  $ ./build/stasm_util -s -f data data/testface.jpg
+
 ## License
 MIT
