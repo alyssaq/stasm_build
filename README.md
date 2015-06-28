@@ -34,11 +34,12 @@ If all the build steps went well, there will be an executable called `stasm_util
 
 To run:
 
-	$ ./build/stasm_util -f data data/testface.jpg
+    $ ./build/stasm_util -f data data/testface.jpg
 
 To show face points on image:
 
-  $ ./build/stasm_util -s -f data data/testface.jpg
+    $ ./build/stasm_util -s -f data data/testface.jpg
+
 
 ## License
 MIT
