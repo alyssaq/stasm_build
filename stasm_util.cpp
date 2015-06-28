@@ -1,4 +1,5 @@
-// command line utility to run Stasm on an image
+// command line utility to run stasm on an image
+// Alyssa Quek 2015
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,8 +7,6 @@
 #include "stasm.h"
 
 namespace stasm {
-static bool writeimgs_g = true;               // -i flag
-static bool multiface_g;                      // -m flag
 static int  showimg_g = false;                // -s flag
 static int  nlandmarks_g = stasm_NLANDMARKS;  // -n flag
 static bool csv_g;                            // -c flag
@@ -15,24 +14,22 @@ static const char* datafolder_g;
 //-----------------------------------------------------------------------------
 static void GetOptions(int &argc, const char** &argv) {
   static const char* const usage =
-      "./stasm_util [FLAGS] IMAGE [IMAGE2 ...]\n"
-      "\n"
-      "Landmark results are printed\n"
-      "\n"
-      "Example: stasm face.jpg\n"
-      "\n"
-      "Flags:\n"
-      "    -m     allow multiple faces per image (default is just the largest)\n"
-      "    -s     show image with landmarks\n"
-      "    -n N   save as 77, 76, 68, 22, 20, or 17 point shape\n"
-      "    -c     save landmarks as CSVs (default saves in shapefile format)\n"
-      "    -i     do not write landmarked images (faster)\n"
-      "    -?     help\n"
-      "\n"
+    "./stasm_util [FLAGS] <image_path>\n"
+    "\n"
+    "Prints (x, y) landmarks to terminal\n"
+    "\n"
+    "Example: ./stasm_util -f data face.jpg\n"
+    "\n"
+    "Flags:\n"
+    "    -f     folder to xml data\n"
+    "    -s     show image with landmarks\n"
+    "    -n N   save as 77, 76, 68, 22, 20, or 17 point shape\n"
+    "    -?     help\n"
+    "\n";
 
   if (argc < 2) {
     Err("No image.  Use stasm -? for help.");
-  } 
+  }
   while (--argc > 0 && (*++argv)[0] == '-') {
     if ((*argv + 1)[1]) {
       Err("Invalid argument -%s (there must be a space after -%c).  "
@@ -40,14 +37,6 @@ static void GetOptions(int &argc, const char** &argv) {
         *argv + 1, (*argv + 1)[0]);
     }
     switch ((*argv + 1)[0]) {
-    case 'c':
-      csv_g = true;
-    case 'i':
-      writeimgs_g = false;
-      break;
-    case 'm':
-      multiface_g = true;
-      break;
     case 's':
       showimg_g = true;
       break;
@@ -66,10 +55,9 @@ static void GetOptions(int &argc, const char** &argv) {
       nlandmarks_g = -1;
       if (1 != sscanf(*argv, "%d", &nlandmarks_g) || nlandmarks_g < 1)
         Err("-n argument must be followed by NLANDMARKS.  For example -n 68");
-      // validity of nlandmarks_g will be checked later after call to ConvertShape
       break;
     case '?':
-      printf(usage, stasm_VERSION);
+      printf("%s", usage);
       exit(1);
     default:
       Err("Invalid argument -%s.  Use stasm -? for help.", *argv + 1);
