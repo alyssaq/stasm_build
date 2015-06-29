@@ -42,4 +42,4 @@ To show face points on image:
 
 
 ## License
-MIT
+BSD-2
