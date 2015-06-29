@@ -139,9 +139,9 @@ set(STASM_EXE stasmMain)
 add_executable(${STASM_EXE} ${OBJ_STASM_MAIN})
 target_link_libraries(${STASM_EXE} ${STASM_LIB} ${LIBS})
 
-set(SWAS_EXE swas)
-add_executable(${SWAS_EXE} ${OBJ_SWAS})
-target_link_libraries(${SWAS_EXE} ${STASM_LIB} ${LIBS})
+#set(SWAS_EXE swas)
+#add_executable(${SWAS_EXE} ${OBJ_SWAS})
+#target_link_libraries(${SWAS_EXE} ${STASM_LIB} ${LIBS})
 
 #set(TASM_MIRROR shapemirror)
 #add_executable(${TASM_MIRROR} ${OBJ_MIRROR})
@@ -166,8 +166,8 @@ add_test(TestStasm ./stasmMain ../data/testface.jpg)
 add_test(TestStasmMulti ./stasmMain -m ../tests/data/testmulti.jpg)
 add_test(TestStasmMulti2 ./stasmMain -d -m -s -c ../tests/data/testmulti.jpg)
 add_test(TestStasm68 ./stasmMain -i -n 68 ../data/testface.jpg)
-add_test(TestSwas ./swas -f ../tests/data/testface.shape)
-add_test(TestTasm ./tasm -d test_tasmout -w ../tasm/shapes/muct77_short.shape)
+#add_test(TestSwas ./swas -f ../tests/data/testface.shape)
+#add_test(TestTasm ./tasm -d test_tasmout -w ../tasm/shapes/muct77_short.shape)
 
 #**************************************************************************************************
 # Generate batch files for examples
