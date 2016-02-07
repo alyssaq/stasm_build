@@ -8,7 +8,6 @@
 
 namespace stasm {
 static int  showimg_g = false;                // -s flag
-static int  nlandmarks_g = stasm_NLANDMARKS;  // -n flag
 static bool csv_g;                            // -c flag
 static const char* datafolder_g;
 //-----------------------------------------------------------------------------
@@ -16,14 +15,13 @@ static void GetOptions(int &argc, const char** &argv) {
   static const char* const usage =
     "./stasm_util [FLAGS] <image_path>\n"
     "\n"
-    "Prints (x, y) landmarks to terminal\n"
+    "Prints 77 (x, y) landmarks to terminal\n"
     "\n"
     "Example: ./stasm_util -f data face.jpg\n"
     "\n"
     "Flags:\n"
     "    -f     folder to xml data\n"
     "    -s     show image with landmarks\n"
-    "    -n N   save as 77, 76, 68, 22, 20, or 17 point shape\n"
     "    -?     help\n"
     "\n";
 
@@ -46,15 +44,6 @@ static void GetOptions(int &argc, const char** &argv) {
       argc--;
       argv++;
       datafolder_g = *argv;
-      break;
-    case 'n':
-      if (argc < 3)
-        Err("-n argument must be followed by NLANDMARKS.  For example -n 68");
-      argc--;
-      argv++;
-      nlandmarks_g = -1;
-      if (1 != sscanf(*argv, "%d", &nlandmarks_g) || nlandmarks_g < 1)
-        Err("-n argument must be followed by NLANDMARKS.  For example -n 68");
       break;
     case '?':
       printf("%s", usage);
@@ -91,7 +80,7 @@ static void ProcessImg(const char* imgpath) {
   } else {
     // draw the landmarks on the image as white dots (image is monochrome)
     stasm_force_points_into_image(landmarks, img.cols, img.rows);
-    //printf("Num points: %d \n", stasm_NLANDMARKS);
+    // printf("Num points: %d \n", stasm_NLANDMARKS);
     for (int i = 0; i < stasm_NLANDMARKS; i++) {
       printf("%d %d\n", cvRound(landmarks[i*2]), cvRound(landmarks[i*2+1]));
       if (showimg_g) {
@@ -101,12 +90,12 @@ static void ProcessImg(const char* imgpath) {
   }
 
   if (showimg_g) {
-    cv::imshow("stasm minimal", img);
+    cv::imshow("stasm face points", img);
     cv::waitKey();
   }
 }
 
-static void main1(int argc, const char** argv) {
+static void main(int argc, const char** argv) {
   GetOptions(argc, argv);
 
   // argc is now the number of images and argv is the image filenames
@@ -125,7 +114,7 @@ static void main1(int argc, const char** argv) {
 int main(int argc, const char** argv) {
   stasm::CatchOpenCvErrs();
   try {
-    stasm::main1(argc, argv);
+    stasm::main(argc, argv);
   } catch(...) {
     // a call was made to Err or a CV_Assert failed
     printf("\n%s\n", stasm_lasterr());
