@@ -1,0 +1,10 @@
+--- stasm/asm.cpp	2016-05-14 21:44:16.000000000 +0200
++++ stasm/asm_new.cpp	2016-05-14 21:44:06.000000000 +0200
+@@ -3,6 +3,7 @@
+ // Copyright (C) 2005-2013, Stephen Milborrow
+ 
+ #include "stasm.h"
++#include "opencv2/imgproc.hpp"
+ 
+ namespace stasm
+ {

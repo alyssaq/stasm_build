@@ -1,0 +1,10 @@
+--- stasm/misc.cpp	2013-12-27 22:39:28.000000000 +0100
++++ stasm/misc_new.cpp	2016-05-14 21:47:52.000000000 +0200
+@@ -4,6 +4,7 @@
+ 
+ #include "stasm.h"
+ #include <sys/stat.h>
++#include "opencv2/imgproc.hpp"
+ 
+ namespace stasm
+ {

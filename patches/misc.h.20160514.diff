@@ -1,0 +1,10 @@
+--- stasm/misc.h	2016-05-14 21:33:20.000000000 +0200
++++ stasm/misc_new.h	2016-05-14 21:33:38.000000000 +0200
+@@ -4,6 +4,7 @@
+ 
+ #ifndef STASM_MISC_H
+ #define STASM_MISC_H
++#include <opencv2/objdetect.hpp>
+ 
+ namespace stasm
+ {

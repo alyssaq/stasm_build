@@ -1,0 +1,10 @@
+--- stasm/MOD_1/facedet.cpp	2013-12-27 22:39:28.000000000 +0100
++++ stasm/MOD_1/facedet_new.cpp	2016-05-14 21:42:13.000000000 +0200
+@@ -3,6 +3,7 @@
+ // Copyright (C) 2005-2013, Stephen Milborrow
+ 
+ #include "../stasm.h"
++#include "opencv2/imgproc.hpp"
+ 
+ namespace stasm
+ {

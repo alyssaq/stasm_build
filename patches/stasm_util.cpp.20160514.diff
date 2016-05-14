@@ -1,0 +1,10 @@
+--- stasm_build/stasm_util.cpp	2016-05-14 18:54:04.000000000 +0200
++++ stasm_util_new.cpp	2016-05-14 22:00:59.000000000 +0200
+@@ -5,6 +5,7 @@
+ #include <stdlib.h>
+ #include "opencv/highgui.h"
+ #include "stasm.h"
++#include <opencv2/highgui.hpp>
+ 
+ namespace stasm {
+ static int  showimg_g = false;                // -s flag
