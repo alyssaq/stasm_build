@@ -25,7 +25,8 @@ enable_testing()
 #**************************************************************************************************
 # Search for OpenCV
 #**************************************************************************************************
-find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED PATHS /usr/local/opt/opencv3)
+message(STATUS " OpenCV library version: ${OpenCV_VERSION}")
 if(OpenCV_FOUND)
   include_directories(${OpenCV_INCLUDE_DIRS})
 endif()
