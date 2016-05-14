@@ -2,7 +2,9 @@
 
 This is a fork from <https://github.com/juan-cardelino/stasm> to include a command line utility and a straightforward set of build instructions for mac/unix.
 
-[Stasm](<http://www.milbo.users.sonic.net/stasm>) is a C++ library for finding key facial features (BSD licensed). [OpenCV](http://opencv.org/) is required.
+[Stasm](<http://www.milbo.users.sonic.net/stasm>) is a C++ library for finding key facial features (BSD licensed). 
+
+[OpenCV](http://opencv.org/) 2.X or 3.X is required.
 
 Build scripts to compile the STASM library (version 4 and later):
 
@@ -20,13 +22,7 @@ Build scripts to compile the STASM library (version 4 and later):
 ```
 $ cd stasm4.1.0
 $ git clone https://github.com/alyssaq/stasm_build.git
-$ patch apps/appmisc.cpp < stasm_build/patches/appmisc.cpp.20140201.diff
-$ patch apps/shapefile/shapefile.cpp < stasm_build/patches/shapefile.cpp.20140201.diff
-$ rm -r stasm_build/patches
-$ cp stasm_build/* .
-$ mkdir build && cd build
-$ cmake ../
-$ make
+$ ./stasm_build/build.sh
 ```
 
 ## Test stasm command utility
