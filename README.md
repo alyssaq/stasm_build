@@ -37,5 +37,13 @@ To show face points on image:
     $ ./stasm_util -s -f ../data ../data/testface.jpg
 
 
+## Building for linux in docker (see Dockerfile)
+```sh
+$ docker build -t stasm .                              # build the image
+$ docker run --name temp-stasm stasm                   # run a temp container
+$ docker cp temp-stasm:/stasm4.1.0/build/stasm_util .  # copy binary to current folder
+$ docker rm temp-stasm                                 # remove the temp container
+```
+
 ## License
 BSD-2
