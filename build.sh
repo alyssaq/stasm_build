@@ -21,6 +21,6 @@ then
   patch stasm_util.cpp < stasm_build/patches/stasm_util.cpp.20160514.diff
 fi
 
-mkdir build && cd build
+mkdir -p build && cd build
 cmake ../
 make
