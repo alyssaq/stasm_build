@@ -39,10 +39,12 @@ To show face points on image:
 
 ## Building for linux in docker (see Dockerfile)
 ```sh
-$ docker build -t stasm .                              # build the image
+$ git clone https://github.com/alyssaq/stasm_build
+$ docker build -t stasm .                              # build the image (takes a while)
 $ docker run --name temp-stasm stasm                   # run a temp container
-$ docker cp temp-stasm:/stasm4.1.0/build/stasm_util .  # copy binary to current folder
+$ docker cp temp-stasm:/stasm4.1.0/build/stasm_util .  # copy binary from container to current folder
 $ docker rm temp-stasm                                 # remove the temp container
+# At the end of this, there should be a binary `stasm_util` in your current directory
 ```
 
 ## License
