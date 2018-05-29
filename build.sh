@@ -1,4 +1,9 @@
 CV_VERSION=$(python -c "import cv2; print(cv2.__version__.split('.')[0])")
+if [ ${PWD##*/}="stasm_build" ];
+then
+  cd ..
+fi
+
 if [ $CV_VERSION="3" ];
 then
   echo "Patching files for OpenCV 3"
